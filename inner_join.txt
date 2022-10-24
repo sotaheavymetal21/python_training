@@ -1,0 +1,20 @@
+SELECT
+
+社員.社員ID, 社員.社員名, 社員.部署ID, 部署マスタ.部署名
+
+FROM
+
+社員 INNER JOIN 部署マスタ ON 社員.部署ID = 部署マスタ.ID;
+
+select customer.id from customer inner join basic_information on customer.id = basic_information.id;
+
+TRUNCATE TABLE customer, basic_information, residence_address, residence_information, employment, workplace;
+
+select * from customer inner join basic_information, residence_address, residence_information, employment, workplace on customer.id = basic_information.id, customer.id = address.id;
+
+# 全テーブルを結合させて表示させる
+select * from customer join basic_information using(id) join residence_address using(id) join residence_information using(id) join employment using(id) join workplace using(id);
+
+select * from customer join basic_information using(id);
+
+select * from customer join basic_information using(id) join residence_address using(id);
